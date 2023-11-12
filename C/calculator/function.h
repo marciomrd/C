@@ -4,7 +4,7 @@
 
 /*Global variables*/
 
-float i; float j; float result;
+float number1; float number2; float result;
 
 /*Bloc of vizualization*/
 
@@ -13,10 +13,10 @@ int calc (){
 printf("\n====== Calculator ======\n");
 
 printf("Insert the first value: \n");
-scanf("%f", &i);
+scanf("%f", &number1);
 
 printf("Insert the second value: \n");
-scanf("%f", &j);
+scanf("%f", &number2);
 
 system("cls");
 
@@ -28,7 +28,7 @@ return 0;
 
 int options(){
 
-    int opt;
+    int option;
 
     printf("\n ====== Select a Option ====== \n");
     printf("\n 1 - Sum \n");
@@ -39,9 +39,9 @@ int options(){
     printf("\n======================\n");
 
     printf("\n Insert a option:");
-    scanf("%d", &opt);
+    scanf("%d", &option);
 
-    switch (opt)
+    switch (option)
     {
     case 1:
         sum();
@@ -65,6 +65,7 @@ int options(){
     
     default:
         printf("====== Error: invalid option ======\n");
+        return 1;
         break;
     }
 
@@ -76,7 +77,7 @@ int options(){
 
 int sum (){
 
-result = i + j;
+result = number1 + number2;
 
 printf("\n Result is: %2.1f \n", result);
 return 0;
@@ -85,7 +86,7 @@ return 0;
 
 int sub(){
 
-result = i - j;
+result = number1 - number2;
 
 printf("\n Result is: %2.1f \n", result);
 return 0;
@@ -94,7 +95,7 @@ return 0;
 
 int multi (){
 
-result = i * j;
+result = number1 * number2;
 
 printf("\n Result is: %2.1f \n", result);
 return 0;
@@ -103,10 +104,18 @@ return 0;
 
 int divi (){
 
-result = i / j;
+if (number2 == 0)
+{
+    printf("\n Is not possible divide for 0!\n");
+    return 1;
+}
+else{
 
-printf("\n Result is: %2.1f \n", result);
-return 0;
+    result = number1 / number2;
+
+    printf("\n Result is: %2.1f \n", result);
+    return 0;
+}
     
 }
 
